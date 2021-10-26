@@ -1,0 +1,16 @@
+<h1> Pet Details </h1>
+
+<div>
+<%= @pet.name %>
+<%= @pet.species %>
+<%= @pet.location %>
+<%= @pet.found_on %>
+</div>
+
+<%= link_to "Edit", edit_pet_path(@pet) %>
+<%= link_to "Delete", 
+    pet_path(@pet), 
+    method: :delete, 
+    data: { confirm: "Are you sure to delete?"},
+    class: "btn btn-danger"
+    %>
