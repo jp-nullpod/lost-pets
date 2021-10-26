@@ -1,13 +1,22 @@
 <h1>List of Pets</h1>
 
-<ul>
-    <% @pets.each do |pet| %>
-        <li> 
-            <%= link_to pet.name, pet_path(pet) %> - 
-            <%= pet.species %> - 
-            Found: <%= found_days_ago(pet.found_on) %> Day(s) ago
-        </li>
-    <% end %>
-</ul>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Species</th>
+        <th>Date Found</th>
+      </tr>
+    </thead>
+    <tbody>      
+        <% @pets.each do |pet| %>
+        <tr>
+            <td><%= link_to pet.name.capitalize(), pet_path(pet) %></td>   
+            <td><%= pet.species.capitalize() %></td>
+            <td><%= found_days_ago(pet.found_on) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 
-<%= link_to "Add new pet", new_pet_path %>
+<%= link_to "Add new pet", new_pet_path, class: "btn btn-primary" %>
